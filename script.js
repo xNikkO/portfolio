@@ -1,7 +1,5 @@
 console.log("System Initialized...");
 
-/* --- LIGHTBOX LOGIC --- */
-
 function openLightbox(source) {
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
@@ -10,7 +8,6 @@ function openLightbox(source) {
   lightbox.classList.add("active");
   document.body.style.overflow = "hidden";
 
-  // Sprawdź czy to wideo (kończy się na .mp4)
   if (source.endsWith(".mp4")) {
     lightboxImg.style.display = "none";
     lightboxVideo.style.display = "block";
@@ -18,7 +15,7 @@ function openLightbox(source) {
     lightboxVideo.play();
   } else {
     lightboxVideo.style.display = "none";
-    lightboxVideo.pause(); // Zatrzymaj wideo jeśli było odtwarzane
+    lightboxVideo.pause();
     lightboxImg.style.display = "block";
     lightboxImg.src = source;
   }
@@ -31,7 +28,6 @@ function closeLightbox() {
   lightbox.classList.remove("active");
   document.body.style.overflow = "auto";
   
-  // Zatrzymaj wideo przy zamknięciu
   lightboxVideo.pause();
   lightboxVideo.currentTime = 0;
 }
@@ -42,25 +38,21 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-/* --- VIDEO DELAY LOGIC --- */
 document.addEventListener('DOMContentLoaded', () => {
     const video = document.getElementById('landing-video');
     if (video) {
-        // Upewnij się, że autoplay jest wyłączony w HTML (usunęliśmy atrybut autoplay)
-        // lub zatrzymaj go natychmiast, jeśli przeglądarka próbuje odtworzyć
         video.pause();
         
         setTimeout(() => {
             video.play().catch(error => {
                 console.log("Autoplay prevented or failed:", error);
             });
-        }, 1000); // 1 sekunda opóźnienia
+        }, 1000);
     }
     
     updateLanguage(currentLang);
 });
 
-/* --- LANGUAGE SWITCHER --- */
 const translations = {
   pl: {
     status: "OTWARTY NA WSPÓŁPRACĘ",
@@ -71,7 +63,6 @@ const translations = {
     project_status: "AKTYWNY DEV",
     project_desc: "\"Autorska platforma CTF z autorskimi scenariuszami. Projekt skupia się na praktycznej nauce cyberbezpieczeństwa poprzez symulację realnych incydentów IT.\"",
     
-    // Zaktualizowane opisy zdjęć
     view_dashboard: "LANDING PAGE",
     view_challenge: "POKÓJ CTF",
     view_ranking: "PROFIL UŻYTKOWNIKA",
@@ -92,7 +83,6 @@ const translations = {
     project_status: "ACTIVE DEV",
     project_desc: "\"Proprietary CTF platform with custom scenarios. The project focuses on practical cybersecurity learning through simulation of real IT incidents.\"",
     
-    // Updated image descriptions
     view_dashboard: "LANDING PAGE",
     view_challenge: "CTF ROOM",
     view_ranking: "USER PROFILE",
@@ -118,11 +108,9 @@ function updateLanguage(lang) {
     }
   });
 
-  // Aktualizacja przycisku
   document.getElementById('lang-pl').classList.toggle('active', lang === 'pl');
   document.getElementById('lang-en').classList.toggle('active', lang === 'en');
   
-  // Zapisz wybór
   localStorage.setItem('lang', lang);
   currentLang = lang;
 }

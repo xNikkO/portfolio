@@ -1,7 +1,5 @@
-/* --- ZMIENNE I KONFIGURACJA --- */
 :root {
-  /* Paleta kolorów - Czysty Dark Mode */
-  --bg-main: #050505; /* Jeszcze ciemniejsze tło */
+  --bg-main: #050505;
   --bg-sidebar: #0a0a0a;
   --bg-card: #111111;
   --border: #333;
@@ -10,10 +8,10 @@
   --text-secondary: #94a3b8;
   --text-accent: #fff;
 
-  --accent-blue: #00f0ff; /* Cyberpunk Cyan */
-  --accent-green: #0aff00; /* Hacker Green */
-  --accent-gold: #fcee0a; /* Cyber Yellow */
-  --accent-red: #ff003c; /* Glitch Red */
+  --accent-blue: #00f0ff;
+  --accent-green: #0aff00;
+  --accent-gold: #fcee0a;
+  --accent-red: #ff003c;
 
   --font-ui: "Inter", sans-serif;
   --font-mono: "Space Mono", monospace;
@@ -25,7 +23,6 @@
   box-sizing: border-box;
 }
 
-/* CUSTOM SCROLLBAR */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -49,7 +46,6 @@ body {
   position: relative;
 }
 
-/* --- CRT SCANLINE EFFECT --- */
 .crt-overlay {
   position: fixed;
   top: 0;
@@ -66,7 +62,6 @@ body {
   opacity: 0.6;
 }
 
-/* Winieta (przyciemnienie rogów) */
 .crt-overlay::after {
   content: "";
   position: absolute;
@@ -78,7 +73,6 @@ body {
   pointer-events: none;
 }
 
-/* --- UKŁAD GŁÓWNY (GRID) --- */
 .main-layout {
   display: grid;
   grid-template-columns: 380px 1fr;
@@ -86,7 +80,6 @@ body {
   position: relative;
 }
 
-/* TŁO - ANIMOWANA SIATKA */
 .bg-grid-lines {
   position: absolute;
   inset: 0;
@@ -100,7 +93,6 @@ body {
   mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
 }
 
-/* --- LEWY PANEL (SIDEBAR) --- */
 .profile-sidebar {
   background-color: var(--bg-sidebar);
   border-right: 1px solid var(--border);
@@ -129,7 +121,6 @@ body {
   text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
 }
 
-/* LANGUAGE SWITCHER - BARDZIEJ WIDOCZNY */
 .lang-switch {
   font-family: var(--font-mono);
   font-size: 0.9rem;
@@ -138,11 +129,11 @@ body {
   display: flex;
   gap: 8px;
   color: var(--text-primary);
-  border: 2px solid var(--border); /* Grubsza ramka */
-  padding: 8px 15px; /* Większy padding */
+  border: 2px solid var(--border);
+  padding: 8px 15px;
   border-radius: 4px;
   transition: 0.3s;
-  background: rgba(255, 255, 255, 0.05); /* Lekkie tło */
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .lang-switch:hover {
@@ -190,7 +181,6 @@ body {
   100% { opacity: 1; box-shadow: 0 0 8px var(--accent-green); }
 }
 
-/* GLITCH EFFECT NA NAZWISKU */
 .glitch-wrapper {
   position: relative;
   display: inline-block;
@@ -261,7 +251,6 @@ body {
   margin-bottom: 25px;
 }
 
-/* TAGI */
 .tags-container {
   display: flex;
   flex-wrap: wrap;
@@ -273,7 +262,7 @@ body {
   font-size: 0.7rem;
   border: 1px solid var(--border);
   padding: 5px 12px;
-  border-radius: 2px; /* Bardziej techniczny wygląd */
+  border-radius: 2px;
   color: var(--text-secondary);
   background: rgba(255, 255, 255, 0.02);
   font-family: var(--font-mono);
@@ -295,11 +284,10 @@ body {
   padding-left: 15px;
 }
 
-/* LINKI KONTAKTOWE */
 .contact-links {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap; /* Pozwala przyciskom zawijać się, jeśli brakuje miejsca */
+  flex-wrap: wrap;
 }
 
 .btn-filled,
@@ -319,7 +307,7 @@ body {
   letter-spacing: 1px;
   position: relative;
   overflow: hidden;
-  flex-grow: 1; /* Przyciski rozciągają się */
+  flex-grow: 1;
 }
 
 .btn-filled {
@@ -345,9 +333,8 @@ body {
   background: rgba(255,255,255,0.05);
 }
 
-/* SVG w przyciskach */
 .btn-outlined svg, .btn-filled svg {
-  fill: currentColor; /* Ikona przyjmuje kolor tekstu */
+  fill: currentColor;
   transition: 0.3s;
 }
 
@@ -362,7 +349,6 @@ body {
   padding-top: 15px;
 }
 
-/* --- PRAWY PANEL (TREŚĆ) --- */
 .content-area {
   overflow-y: auto;
   padding: 60px 80px;
@@ -371,7 +357,7 @@ body {
 
 .section-block {
   margin-bottom: 120px;
-  opacity: 0; /* Animacja wejścia */
+  opacity: 0;
   animation: fadeIn 1s forwards;
 }
 
@@ -401,7 +387,6 @@ body {
   opacity: 0.3;
 }
 
-/* --- 1. SEKCJA PROJEKTU (HACKADEMY) --- */
 .project-showcase {
   border: 1px solid var(--border);
   padding: 40px;
@@ -417,7 +402,6 @@ body {
   box-shadow: 0 0 20px rgba(0, 240, 255, 0.05);
 }
 
-/* Dekoracyjne narożniki */
 .project-showcase::before {
   content: "";
   position: absolute;
@@ -471,7 +455,6 @@ body {
   background: linear-gradient(90deg, rgba(59, 130, 246, 0.05), transparent);
 }
 
-/* GALERIA ZDJĘĆ */
 .gallery-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -533,80 +516,51 @@ body {
   text-transform: uppercase;
 }
 
-/* --- TERMINAL / SYSTEM LOG --- */
-.terminal-box {
-  background: #000;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  font-family: var(--font-mono);
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
   margin-bottom: 40px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  overflow: hidden;
 }
 
-.terminal-header {
-  background: #111;
-  padding: 8px 15px;
-  border-bottom: 1px solid var(--border);
+.module-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  padding: 15px;
   display: flex;
-  gap: 8px;
   align-items: center;
+  gap: 15px;
+  transition: 0.3s;
 }
 
-.term-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-.term-dot.red { background: #ff5f56; }
-.term-dot.yellow { background: #ffbd2e; }
-.term-dot.green { background: #27c93f; }
-
-.terminal-title {
-  margin-left: 10px;
-  font-size: 0.7rem;
-  color: #666;
+.module-card:hover {
+  border-color: var(--accent-blue);
+  background: rgba(0, 240, 255, 0.05);
 }
 
-.term-content {
-  padding: 20px;
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  line-height: 1.6;
-}
-
-.term-line {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.term-line.command {
-  color: #fff;
-}
-.term-line.command::before {
-  content: "root@nikko:~$ ";
-  color: var(--accent-green);
-}
-
-.term-line.success {
+.mod-icon {
+  font-size: 1.5rem;
   color: var(--accent-blue);
 }
 
-.blink-cursor {
-  display: inline-block;
-  width: 8px;
-  height: 15px;
-  background: var(--accent-green);
-  animation: blink 1s infinite;
-  vertical-align: middle;
+.mod-info {
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+.mod-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
-/* Tech Stack */
+.mod-status {
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  color: var(--accent-green);
+  letter-spacing: 1px;
+}
+
 .tech-stack-row {
   display: flex;
   gap: 15px;
@@ -628,7 +582,6 @@ body {
   border-radius: 2px;
 }
 
-/* --- 2. SEKCJA CERTYFIKATÓW --- */
 .certs-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -702,7 +655,6 @@ body {
   transform: translateX(3px);
 }
 
-/* --- 3. SEKCJA UMIEJĘTNOŚCI (ARSENAL) --- */
 .skills-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -772,7 +724,6 @@ body {
   padding-top: 20px;
 }
 
-/* --- LIGHTBOX STYLES --- */
 .lightbox {
   position: fixed;
   top: 0; left: 0;
@@ -801,7 +752,7 @@ body {
   box-shadow: 0 0 50px rgba(0, 240, 255, 0.2);
   transform: scale(0.9);
   transition: transform 0.3s ease;
-  outline: none; /* Usunięcie obramowania fokusu dla wideo */
+  outline: none;
 }
 
 .lightbox.active img,
@@ -818,7 +769,6 @@ body {
 }
 .close-btn:hover { text-shadow: 0 0 10px var(--accent-blue); transform: rotate(90deg); }
 
-/* --- RESPANSYWNOŚĆ (MOBILE) --- */
 @media (max-width: 1100px) {
   .main-layout {
     grid-template-columns: 1fr;

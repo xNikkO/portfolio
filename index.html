@@ -15,7 +15,6 @@
     />
   </head>
   <body>
-    <!-- CRT Overlay Effect -->
     <div class="crt-overlay"></div>
 
     <div class="main-layout">
@@ -25,7 +24,6 @@
         <div class="sidebar-header">
           <div class="logo">&lt;NM.SEC /&gt;</div>
 
-          <!-- Language Switcher -->
           <div class="lang-switch" onclick="toggleLanguage()">
             <span id="lang-pl" class="active">PL</span>
             <span class="divider">//</span>
@@ -50,10 +48,9 @@
           </div>
 
           <p class="bio-text" data-i18n="bio">
-            Student Informatyki pasjonujący się bezpieczeństwem IT. Łączę
-            analityczne podejście Blue Team (SOC) z ofensywną ciekawością Red
-            Teamu. Tworzę własne narzędzia edukacyjne i stale poszerzam wiedzę o
-            nowe wektory ataków.
+            Student Informatyki na specjalizacji Cyberbezpieczeństwo. Pasjonat bezpieczeństwa
+            IT, stawiający na wszechstronny rozwój w technikach ofensywnych i defensywnych. Aktywnie tworzę narzędzia edukacyjne i badam najnowsze wektory ataków,
+            wykorzystując tę wiedzę do budowania skuteczniejszej obrony i mechanizmów reagowania na incydenty.
           </p>
 
           <div class="contact-links">
@@ -103,7 +100,6 @@
                 class="gallery-item main-shot"
                 onclick="openLightbox('landingpage.mp4')"
               >
-                <!-- Podgląd wideo (wyciszony, zapętlony) -->
                 <video id="landing-video" src="landingpage.mp4" muted loop class="project-img"></video>
                 <div class="overlay">
                   <span><i class="ri-play-circle-line"></i> <span data-i18n="view_dashboard">LANDING PAGE</span></span>
@@ -131,21 +127,34 @@
               </div>
             </div>
 
-            <!-- TERMINAL BOX ZAMIAST WORKFLOW -->
-            <div class="terminal-box">
-              <div class="terminal-header">
-                <div class="term-dot red"></div>
-                <div class="term-dot yellow"></div>
-                <div class="term-dot green"></div>
-                <span class="terminal-title">root@nikko: ~/hackademy/logs</span>
+            <div class="modules-grid">
+              <div class="module-card">
+                <div class="mod-icon"><i class="ri-shield-check-line"></i></div>
+                <div class="mod-info">
+                  <span class="mod-name">Scenario Engine</span>
+                  <span class="mod-status">ONLINE</span>
+                </div>
               </div>
-              <div class="term-content">
-                <span class="term-line command">./start_server.sh</span>
-                <span class="term-line success">[OK] Initializing Hackademy Core...</span>
-                <span class="term-line success">[OK] Loading CTF Scenarios...</span>
-                <span class="term-line success">[OK] Database Connection Established.</span>
-                <span class="term-line">Listening on port 8080...</span>
-                <span class="term-line"><span class="blink-cursor"></span></span>
+              <div class="module-card">
+                <div class="mod-icon"><i class="ri-database-2-line"></i></div>
+                <div class="mod-info">
+                  <span class="mod-name">Flag Database</span>
+                  <span class="mod-status">CONNECTED</span>
+                </div>
+              </div>
+              <div class="module-card">
+                <div class="mod-icon"><i class="ri-terminal-box-line"></i></div>
+                <div class="mod-info">
+                  <span class="mod-name">Virtual Terminals</span>
+                  <span class="mod-status">ACTIVE</span>
+                </div>
+              </div>
+              <div class="module-card">
+                <div class="mod-icon"><i class="ri-group-line"></i></div>
+                <div class="mod-info">
+                  <span class="mod-name">User Management</span>
+                  <span class="mod-status">SYNCED</span>
+                </div>
               </div>
             </div>
 
@@ -285,7 +294,6 @@
       </main>
     </div>
 
-    <!-- LIGHTBOX OVERLAY -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
       <span class="close-btn">&times;</span>
       <img id="lightbox-img" src="" alt="Enlarged Project" style="display: none;" />
