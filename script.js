@@ -42,6 +42,24 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
+/* --- VIDEO DELAY LOGIC --- */
+document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('landing-video');
+    if (video) {
+        // Upewnij się, że autoplay jest wyłączony w HTML (usunęliśmy atrybut autoplay)
+        // lub zatrzymaj go natychmiast, jeśli przeglądarka próbuje odtworzyć
+        video.pause();
+        
+        setTimeout(() => {
+            video.play().catch(error => {
+                console.log("Autoplay prevented or failed:", error);
+            });
+        }, 1000); // 1 sekunda opóźnienia
+    }
+    
+    updateLanguage(currentLang);
+});
+
 /* --- LANGUAGE SWITCHER --- */
 const translations = {
   pl: {
@@ -113,8 +131,3 @@ function toggleLanguage() {
   const newLang = currentLang === 'pl' ? 'en' : 'pl';
   updateLanguage(newLang);
 }
-
-// Inicjalizacja języka przy starcie
-document.addEventListener('DOMContentLoaded', () => {
-    updateLanguage(currentLang);
-});
