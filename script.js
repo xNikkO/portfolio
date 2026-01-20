@@ -65,7 +65,7 @@ const translations = {
   pl: {
     status: "OTWARTY NA WSPÓŁPRACĘ",
     role: "Cybersecurity Enthusiast",
-    bio: "Student Informatyki pasjonujący się bezpieczeństwem IT. Łączę analityczne podejście Blue Team (SOC) z ofensywną ciekawością Red Teamu. Tworzę własne narzędzia edukacyjne i stale poszerzam wiedzę o nowe wektory ataków.",
+    bio: "Student Informatyki na specjalizacji Cyberbezpieczeństwo. Pasjonat bezpieczeństwa IT, stawiający na wszechstronny rozwój w technikach ofensywnych i defensywnych. Aktywnie tworzę narzędzia edukacyjne i badam najnowsze wektory ataków, wykorzystując tę wiedzę do budowania skuteczniejszej obrony i mechanizmów reagowania na incydenty.",
     contact_btn: "Kontakt",
     section_1: "01 // WYRÓŻNIONY_PROJEKT",
     project_status: "AKTYWNY DEV",
@@ -86,7 +86,7 @@ const translations = {
   en: {
     status: "OPEN TO WORK",
     role: "Cybersecurity Enthusiast",
-    bio: "CS Student passionate about IT Security. I combine the analytical approach of Blue Team (SOC) with the offensive curiosity of Red Team. I create my own educational tools and constantly expand my knowledge of new attack vectors.",
+    bio: "Computer Science student specializing in Cybersecurity. An IT security enthusiast focused on comprehensive development in both offensive and defensive techniques. I actively create educational tools and research the latest attack vectors, leveraging this knowledge to build effective defenses and incident response mechanisms.",
     contact_btn: "Contact",
     section_1: "01 // FEATURED_PROJECT",
     project_status: "ACTIVE DEV",
