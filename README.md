@@ -1,2 +1,2 @@
 # portfolio
-xNikkO.github.io/portfolio
+![Strona Portfolio](xNikkO.github.io/portfolio)
