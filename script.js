@@ -1,5 +1,6 @@
 console.log("System Initialized...");
 
+// --- Lightbox Logic ---
 function openLightbox(source) {
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
@@ -12,7 +13,8 @@ function openLightbox(source) {
     lightboxImg.style.display = "none";
     lightboxVideo.style.display = "block";
     lightboxVideo.src = source;
-    lightboxVideo.play();
+    // Play only when opened in lightbox
+    lightboxVideo.play().catch(e => console.log("Video play failed", e));
   } else {
     lightboxVideo.style.display = "none";
     lightboxVideo.pause();
@@ -28,31 +30,34 @@ function closeLightbox() {
   lightbox.classList.remove("active");
   document.body.style.overflow = "auto";
   
+  // Stop video to save resources
   lightboxVideo.pause();
   lightboxVideo.currentTime = 0;
+  lightboxVideo.src = "";
 }
 
+// Close on Escape key
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     closeLightbox();
   }
 });
 
+// --- Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
+    // Optimize main video: ensure it's muted and plays if possible, but don't force it too hard
     const video = document.getElementById('landing-video');
     if (video) {
-        video.pause();
-        
-        setTimeout(() => {
-            video.play().catch(error => {
-                console.log("Autoplay prevented or failed:", error);
-            });
-        }, 1000);
+        video.muted = true; // Ensure muted for autoplay policy
+        video.play().catch(error => {
+            console.log("Autoplay prevented (browser policy):", error);
+        });
     }
     
     updateLanguage(currentLang);
 });
 
+// --- Internationalization (i18n) ---
 const translations = {
   pl: {
     status: "OTWARTY NA WSPÓŁPRACĘ",
@@ -108,8 +113,11 @@ function updateLanguage(lang) {
     }
   });
 
-  document.getElementById('lang-pl').classList.toggle('active', lang === 'pl');
-  document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+  const btnPl = document.getElementById('lang-pl');
+  const btnEn = document.getElementById('lang-en');
+
+  if (btnPl) btnPl.classList.toggle('active', lang === 'pl');
+  if (btnEn) btnEn.classList.toggle('active', lang === 'en');
   
   localStorage.setItem('lang', lang);
   currentLang = lang;
