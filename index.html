@@ -76,9 +76,10 @@
 
       <main class="content-area">
         <section class="section-block">
-          <div class="section-label" data-i18n="section_1">01 // WYRÓŻNIONY_PROJEKT</div>
+          <div class="section-label" data-i18n="section_1">01 // WYRÓŻNIONE PROJEKTY</div>
 
-          <div class="project-showcase">
+          <!-- PROJECT 1 -->
+          <div class="project-showcase" style="margin-bottom: 40px;">
             <div class="project-header">
               <h3>HACKADEMY</h3>
               <span class="status-tag" data-i18n="project_status">AKTYWNY DEV</span>
@@ -159,6 +160,82 @@
               <span class="tech">Java</span>
               <span class="tech">Spring Boot</span>
               <span class="tech">PostgreSQL</span>
+            </div>
+          </div>
+
+          <!-- PROJECT 2 -->
+          <div class="project-showcase">
+            <div class="project-header">
+              <h3>AD-SENTINEL: THREAT DETECTION LAB</h3>
+              <span class="status-tag" style="background: rgba(255, 45, 85, 0.1); color: var(--primary-red);" data-i18n="project2_status">AKTUALNY LAB</span>
+            </div>
+
+            <p class="project-lead" data-i18n="project2_desc">
+              "Zaawansowane środowisko Active Directory zintegrowane z ekosystemem SIEM (Splunk). Projekt koncentruje się na mapowaniu technik ataku według macierzy MITRE ATT&CK oraz opracowywaniu reguł detekcji w oparciu o telemetrię z endpointów."
+            </p>
+
+            <div class="gallery-grid" style="grid-template-columns: 1fr; margin-bottom: 30px;">
+              <div class="gallery-item" onclick="openLightbox('schematsieci.png')">
+                <img src="schematsieci.png" alt="Schemat Sieci AD-Sentinel" class="project-img" style="object-fit: contain; padding: 10px; background: #0b111d;" />
+                <div class="overlay">
+                  <span><i class="ri-zoom-in-line"></i> Zobacz schemat</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="modules-grid">
+              <div class="module-card">
+                <div class="mod-icon"><i class="ri-radar-line" style="color: var(--primary-red);"></i></div>
+                <div class="mod-info">
+                  <span class="mod-name">SIEM Core</span>
+                  <span class="mod-status" style="color: var(--text-gray);">Splunk Enterprise</span>
+                </div>
+              </div>
+              <div class="module-card">
+                <div class="mod-icon"><i class="ri-computer-line" style="color: var(--primary-red);"></i></div>
+                <div class="mod-info">
+                  <span class="mod-name">Endpoint Monitoring</span>
+                  <span class="mod-status" style="color: var(--text-gray);">Sysmon & Forwarder</span>
+                </div>
+              </div>
+              <div class="module-card">
+                <div class="mod-icon"><i class="ri-bug-line" style="color: var(--primary-red);"></i></div>
+                <div class="mod-info">
+                  <span class="mod-name">Attack Simulation</span>
+                  <span class="mod-status" style="color: var(--text-gray);">Atomic Red Team</span>
+                </div>
+              </div>
+              <div class="module-card">
+                <div class="mod-icon"><i class="ri-node-tree" style="color: var(--primary-red);"></i></div>
+                <div class="mod-info">
+                  <span class="mod-name">Network Isolation</span>
+                  <span class="mod-status" style="color: var(--text-gray);">VLAN Segmented</span>
+                </div>
+              </div>
+              <div class="module-card">
+                <div class="mod-icon"><i class="ri-line-chart-line" style="color: var(--primary-red);"></i></div>
+                <div class="mod-info">
+                  <span class="mod-name">Traffic Analysis</span>
+                  <span class="mod-status" style="color: var(--text-gray);">Packet Inspection</span>
+                </div>
+              </div>
+              <div class="module-card">
+                <div class="mod-icon"><i class="ri-shield-keyhole-line" style="color: var(--primary-red);"></i></div>
+                <div class="mod-info">
+                  <span class="mod-name">Hardening Policies</span>
+                  <span class="mod-status" style="color: var(--text-gray);">GPO Enforcement</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tech-stack-row">
+              <span class="label">STACK:</span>
+              <span class="tech">Active Directory</span>
+              <span class="tech">Splunk</span>
+              <span class="tech">PowerShell</span>
+              <span class="tech">Windows Server</span>
+              <span class="tech">Kali Linux</span>
+              <span class="tech">Sysmon</span>
             </div>
           </div>
         </section>
