@@ -76,10 +76,16 @@ const translations = {
     
     section_2: "02 // CERTYFIKATY & ŚCIEŻKI",
     section_3: "03 // ARSENAŁ_TECHNICZNY",
+    
     skill_soc_1: "Analiza Logów (Syslog, Auth.log)",
     skill_soc_2: "Ruch Sieciowy (Wireshark)",
-    skill_soc_3: "Koncepcje SIEM",
-    skill_soc_4: "Triage Incydentów"
+    skill_soc_3: "SIEM (Splunk), EDR (CrowdStrike Falcon), Elastic Stack",
+    skill_soc_4: "Triage Incydentów",
+    
+    skill_pen_1: "Web App Security (Burp Suite, OWASP ZAP)",
+    skill_pen_2: "Podatności (SQLi, SSRF, CSRF, IDOR, Cmd Injection)",
+    skill_pen_3: "Network Security (Nmap, Metasploit, Wireshark)",
+    skill_pen_4: "Privilege Escalation (Linux & Windows)"
   },
   en: {
     status: "OPEN TO WORK",
@@ -98,10 +104,16 @@ const translations = {
     
     section_2: "02 // CERTIFICATIONS & PATHS",
     section_3: "03 // TECHNICAL_ARSENAL",
+    
     skill_soc_1: "Log Analysis (Syslog, Auth.log)",
     skill_soc_2: "Network Traffic (Wireshark)",
-    skill_soc_3: "SIEM Concepts",
-    skill_soc_4: "Incident Triage"
+    skill_soc_3: "SIEM (Splunk), EDR (CrowdStrike Falcon), Elastic Stack",
+    skill_soc_4: "Incident Triage",
+    
+    skill_pen_1: "Web App Security (Burp Suite, OWASP ZAP)",
+    skill_pen_2: "Vulnerabilities (SQLi, SSRF, CSRF, IDOR, Cmd Injection)",
+    skill_pen_3: "Network Security (Nmap, Metasploit, Wireshark)",
+    skill_pen_4: "Privilege Escalation (Linux & Windows)"
   }
 };
 
