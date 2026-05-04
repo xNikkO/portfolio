@@ -67,6 +67,7 @@ const translations = {
     section_1: "01 // WYRÓŻNIONE PROJEKTY",
     project_status: "AKTYWNY DEV",
     project_desc: "\"Autorska platforma CTF z autorskimi scenariuszami. Projekt skupia się na praktycznej nauce cyberbezpieczeństwa poprzez symulację realnych incydentów IT.\"",
+    hosting_notice: "Uwaga: Frontend i Backend są hostowane na darmowych serwerach (Render). Pełne załadowanie strony po dłuższej nieaktywności może potrwać około 1-3 minuty. Proszę o cierpliwość!",
     project2_status: "AKTUALNY LAB",
     project2_desc: "\"Zaawansowane środowisko Active Directory zintegrowane z ekosystemem SIEM (Splunk). Projekt koncentruje się na mapowaniu technik ataku według macierzy MITRE ATT&CK oraz opracowywaniu reguł detekcji w oparciu o telemetrię z endpointów.\"",
     
@@ -95,6 +96,7 @@ const translations = {
     section_1: "01 // FEATURED PROJECTS",
     project_status: "ACTIVE DEV",
     project_desc: "\"Proprietary CTF platform with custom scenarios. The project focuses on practical cybersecurity learning through simulation of real IT incidents.\"",
+    hosting_notice: "Note: The Frontend and Backend are hosted on free tier servers (Render). Initial load after inactivity may take 1-3 minutes. Please be patient!",
     project2_status: "CURRENT LAB",
     project2_desc: "\"Advanced Active Directory environment integrated with a SIEM ecosystem (Splunk). The project focuses on mapping attack techniques according to the MITRE ATT&CK matrix and developing detection rules based on endpoint telemetry.\"",
     
