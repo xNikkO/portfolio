@@ -222,11 +222,11 @@ export function Stack(): ReactNode {
 
     const activationObserver = new IntersectionObserver(
       ([entry]) => {
-        if (!entry?.isIntersecting) return;
+        if (!entry || entry.intersectionRatio < 0.5) return;
         activationObserver.disconnect();
         void initialize();
       },
-      { rootMargin: "200px" }
+      { threshold: 0.5 }
     );
     activationObserver.observe(container);
 
