@@ -47,11 +47,13 @@ const PROJECTS: Project[] = [
 export type ProjectsProps = {
   withHeadline?: boolean;
   viewMoreVisible?: boolean;
+  eagerImages?: boolean;
 };
 
 export function Projects({
   withHeadline = false,
   viewMoreVisible = false,
+  eagerImages = false,
 }: ProjectsProps): ReactNode {
   const items = viewMoreVisible ? PROJECTS.slice(0, 4) : PROJECTS;
 
@@ -71,7 +73,12 @@ export function Projects({
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-7">
           {items.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={index}
+              priorityImage={eagerImages && index < 2}
+            />
           ))}
         </div>
 
@@ -97,9 +104,11 @@ export function Projects({
 function ProjectCard({
   project,
   index,
+  priorityImage,
 }: {
   project: Project;
   index: number;
+  priorityImage: boolean;
 }): ReactNode {
   const Icon = project.icon;
   return (
@@ -126,6 +135,7 @@ function ProjectCard({
                 fill
                 sizes="(min-width: 1024px) 540px, (min-width: 768px) 45vw, 100vw"
                 className="object-cover object-top"
+                priority={priorityImage}
               />
             </div>
           </div>

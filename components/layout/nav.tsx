@@ -163,7 +163,7 @@ export function Nav(): ReactNode {
       aria-label="Primary"
       className="fixed top-6 left-1/2 z-50 -translate-x-1/2"
     >
-      <div className="border-foreground/10 bg-background/95 flex items-center gap-1 rounded-full border p-1.5 shadow-[0_4px_24px_rgb(0_0_0/0.08),inset_0_1px_0_rgb(255_255_255/0.15)] dark:border-white/15 dark:bg-[#171717]/95">
+      <div className="bg-background/50 border-foreground/10 flex items-center gap-1 rounded-full border p-1.5 shadow-[0_4px_24px_rgb(0_0_0/0.08),inset_0_1px_0_rgb(255_255_255/0.15)] backdrop-blur-xl backdrop-saturate-150 dark:border-white/15 dark:bg-white/8">
         <ul ref={listRef} className="relative flex items-center gap-1">
           {pillRect && (
             <motion.span

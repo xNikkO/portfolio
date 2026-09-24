@@ -2,7 +2,7 @@
 
 Generated with the built-in `image_gen` tool. Optimized asset: `public/portraits/nikodem-illustrated-v2.webp`.
 
-The first illustrated portrait is the base. The second illustration, derived from the user's newer photo, supplies only the hairstyle. The original PNG is retained.
+The first illustrated portrait is the base. The second illustration, derived from the user's newer photo, supplies only the hairstyle. The published asset is WebP; the original PNG is not retained in this repository.
 
 ## Final prompt
 

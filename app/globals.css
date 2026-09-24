@@ -88,46 +88,6 @@ body {
   outline-offset: 2px;
 }
 
-.page-backdrop {
-  background:
-    radial-gradient(
-      ellipse 55% 48% at 18% 12%,
-      rgb(163 163 163 / 0.38),
-      transparent 100%
-    ),
-    radial-gradient(
-      ellipse 65% 55% at 78% 18%,
-      rgb(212 212 212 / 0.45),
-      transparent 100%
-    );
-}
-
-.dark .page-backdrop {
-  background:
-    radial-gradient(
-      ellipse 55% 48% at 18% 12%,
-      rgb(115 115 115 / 0.32),
-      transparent 100%
-    ),
-    radial-gradient(
-      ellipse 65% 55% at 78% 18%,
-      rgb(82 82 82 / 0.35),
-      transparent 100%
-    );
-}
-
-.contact-card-backdrop {
-  background:
-    radial-gradient(ellipse at 20% 15%, #6d6d6d, transparent 65%),
-    linear-gradient(145deg, #292929, #0a0a0a 75%);
-}
-
-.dark .contact-card-backdrop {
-  background:
-    radial-gradient(ellipse at 20% 15%, #a3a3a3, transparent 65%),
-    linear-gradient(145deg, #525252, #171717 75%);
-}
-
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
