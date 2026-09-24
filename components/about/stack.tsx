@@ -36,6 +36,15 @@ type ChipState = {
   height: number;
 };
 
+type MatterMouseWithHandlers = Matter.Mouse & {
+  mousemove: EventListener;
+  mousedown: EventListener;
+  mouseup: EventListener;
+  mousewheel: EventListener;
+};
+
+const PHYSICS_STEP = 1000 / 60;
+
 export function Stack(): ReactNode {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const measureRef = useRef<HTMLDivElement | null>(null);
@@ -50,20 +59,12 @@ export function Stack(): ReactNode {
     let cancelled = false;
     let cleanup: (() => void) | undefined;
 
-    void (async () => {
+    const initialize = async (): Promise<void> => {
       const Matter = await import("matter-js");
       if (cancelled) return;
 
-      const {
-        Engine,
-        Runner,
-        World,
-        Bodies,
-        Body,
-        Mouse,
-        MouseConstraint,
-        Events,
-      } = Matter;
+      const { Engine, World, Bodies, Body, Mouse, MouseConstraint, Events } =
+        Matter;
 
       const measureChildren = Array.from(measure.children) as HTMLElement[];
       const dims = measureChildren.map((el) => {
@@ -123,17 +124,8 @@ export function Stack(): ReactNode {
       });
 
       const mouse = Mouse.create(container);
-
-      const wheelTarget = mouse.element as HTMLElement & {
-        mousewheel?: EventListener;
-      };
-      if (wheelTarget.mousewheel) {
-        wheelTarget.removeEventListener("wheel", wheelTarget.mousewheel);
-        wheelTarget.removeEventListener(
-          "DOMMouseScroll",
-          wheelTarget.mousewheel
-        );
-      }
+      const mouseHandlers = mouse as MatterMouseWithHandlers;
+      container.removeEventListener("wheel", mouseHandlers.mousewheel);
 
       const mouseConstraint = MouseConstraint.create(engine, {
         mouse,
@@ -152,11 +144,22 @@ export function Stack(): ReactNode {
         container.style.cursor = "grab";
       });
 
-      const runner = Runner.create();
-      Runner.run(runner, engine);
-
       let raf = 0;
-      const tick = (): void => {
+      let active = false;
+      let onScreen = false;
+      let lastFrame = 0;
+      let accumulator = 0;
+      const tick = (now: number): void => {
+        if (!active) return;
+        accumulator = Math.min(
+          accumulator + (lastFrame ? now - lastFrame : PHYSICS_STEP),
+          PHYSICS_STEP * 4
+        );
+        lastFrame = now;
+        while (accumulator >= PHYSICS_STEP) {
+          Engine.update(engine, PHYSICS_STEP);
+          accumulator -= PHYSICS_STEP;
+        }
         for (let i = 0; i < states.length; i++) {
           const s = states[i];
           const el = chipRefs.current[i];
@@ -166,7 +169,29 @@ export function Stack(): ReactNode {
         }
         raf = requestAnimationFrame(tick);
       };
-      raf = requestAnimationFrame(tick);
+
+      const updatePlayback = (): void => {
+        const shouldRun = onScreen && !document.hidden;
+        if (shouldRun === active) return;
+        active = shouldRun;
+        if (active) {
+          lastFrame = 0;
+          accumulator = 0;
+          raf = requestAnimationFrame(tick);
+        } else {
+          cancelAnimationFrame(raf);
+          raf = 0;
+        }
+      };
+      const visibilityObserver = new IntersectionObserver(
+        ([entry]) => {
+          onScreen = entry?.isIntersecting ?? false;
+          updatePlayback();
+        },
+        { rootMargin: "100px" }
+      );
+      visibilityObserver.observe(container);
+      document.addEventListener("visibilitychange", updatePlayback);
 
       const onResize = (): void => {
         const newW = container.clientWidth;
@@ -191,16 +216,36 @@ export function Stack(): ReactNode {
       ro.observe(container);
 
       cleanup = () => {
+        active = false;
         cancelAnimationFrame(raf);
+        visibilityObserver.disconnect();
+        document.removeEventListener("visibilitychange", updatePlayback);
         ro.disconnect();
-        Runner.stop(runner);
+        container.removeEventListener("mousemove", mouseHandlers.mousemove);
+        container.removeEventListener("mousedown", mouseHandlers.mousedown);
+        container.removeEventListener("mouseup", mouseHandlers.mouseup);
+        container.removeEventListener("touchmove", mouseHandlers.mousemove);
+        container.removeEventListener("touchstart", mouseHandlers.mousedown);
+        container.removeEventListener("touchend", mouseHandlers.mouseup);
+        Mouse.clearSourceEvents(mouse);
         World.clear(world, false);
         Engine.clear(engine);
       };
-    })();
+    };
+
+    const activationObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry || entry.intersectionRatio < 0.5) return;
+        activationObserver.disconnect();
+        void initialize();
+      },
+      { threshold: 0.5 }
+    );
+    activationObserver.observe(container);
 
     return () => {
       cancelled = true;
+      activationObserver.disconnect();
       cleanup?.();
     };
   }, [resetKey]);
@@ -281,6 +326,7 @@ function ChipPill({ chip }: { chip: Chip }): ReactNode {
           alt=""
           width={18}
           height={18}
+          decoding="async"
           className="h-5 w-5"
           draggable={false}
         />

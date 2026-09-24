@@ -17,7 +17,7 @@ export function PortraitCard() {
       >
         <div className="relative aspect-square overflow-hidden rounded-3xl bg-[#dededb]">
           <Image
-            src={publicPath("/portraits/nikodem-illustrated-v2.png")}
+            src={publicPath("/portraits/nikodem-illustrated-v2.webp")}
             alt="Hand-drawn black-and-white portrait of Nikodem Mahlik"
             fill
             sizes="(min-width: 1024px) 328px, (min-width: 640px) 296px, 264px"
