@@ -1,0 +1,7 @@
+# Previous static portfolio, kept locally as an archive.
+/legacy/
+
+# Local agent configuration and generated files.
+/.agents/
+/.claude/
+/skills-lock.json
