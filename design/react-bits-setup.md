@@ -6,7 +6,7 @@ Grainient is adapted from the source supplied for this portfolio. It uses the ex
 
 `components/ui/staggered-greeting.tsx` is an original local word-reveal animation. It is not the React Bits Pro Staggered Text component. The requested CLI installation was attempted but could not proceed because `REACTBITS_LICENSE_KEY` was unavailable.
 
-The official Starter and Pro registries are configured in `components.json`. To install the licensed component, add `REACTBITS_LICENSE_KEY` to `portfolio/.env.local` (ignored by Git), then run from `portfolio/`:
+The official Starter and Pro registries are configured in `components.json`. To install the licensed component, add `REACTBITS_LICENSE_KEY` to `.env.local` (ignored by Git), then run from the repository root:
 
 ```sh
 npx shadcn@latest add @reactbits-starter/staggered-text-tw
