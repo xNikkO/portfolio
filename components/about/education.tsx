@@ -69,6 +69,8 @@ function SchoolLogo({ entry }: { entry: Entry }): ReactNode {
           alt=""
           width={24}
           height={24}
+          loading="lazy"
+          decoding="async"
           className="h-6 w-6"
           draggable={false}
         />

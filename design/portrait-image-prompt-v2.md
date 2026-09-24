@@ -1,6 +1,6 @@
 # Portrait with updated hairstyle
 
-Generated with the built-in `image_gen` tool. Final asset: `public/portraits/nikodem-illustrated-v2.png`.
+Generated with the built-in `image_gen` tool. Optimized asset: `public/portraits/nikodem-illustrated-v2.webp`.
 
 The first illustrated portrait is the base. The second illustration, derived from the user's newer photo, supplies only the hairstyle. The original PNG is retained.
 

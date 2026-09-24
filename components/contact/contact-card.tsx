@@ -6,7 +6,6 @@ import { SiTryhackme } from "react-icons/si";
 
 import { ContactCardCtas } from "./contact-card-ctas";
 import { FadeIn } from "@/components/ui/motion-primitives";
-import { PortfolioGrainient } from "../shaders/portfolio-grainient";
 import { publicPath } from "@/lib/paths";
 
 const CARD_FADE_MASK =
@@ -20,14 +19,12 @@ export function ContactCard(): ReactNode {
           <div className="relative w-full overflow-hidden rounded-[1.6rem]">
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 opacity-45 dark:opacity-25"
+              className="contact-card-backdrop pointer-events-none absolute inset-0 opacity-45 dark:opacity-25"
               style={{
                 WebkitMaskImage: CARD_FADE_MASK,
                 maskImage: CARD_FADE_MASK,
               }}
-            >
-              <PortfolioGrainient />
-            </div>
+            />
 
             <div className="relative grid gap-8 p-6 sm:gap-10 sm:p-7 md:grid-cols-[1.2fr_1fr] md:items-stretch md:gap-6 md:p-6">
               <div className="flex flex-col gap-5">

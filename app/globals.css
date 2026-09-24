@@ -11,7 +11,7 @@
   --ring: #0066ff;
   --frame: #ffffff;
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-mono: ui-monospace, monospace;
   --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
 }
 
@@ -86,6 +86,46 @@ body {
 .focus-ring:focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
+}
+
+.page-backdrop {
+  background:
+    radial-gradient(
+      ellipse 55% 48% at 18% 12%,
+      rgb(163 163 163 / 0.38),
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 65% 55% at 78% 18%,
+      rgb(212 212 212 / 0.45),
+      transparent 100%
+    );
+}
+
+.dark .page-backdrop {
+  background:
+    radial-gradient(
+      ellipse 55% 48% at 18% 12%,
+      rgb(115 115 115 / 0.32),
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 65% 55% at 78% 18%,
+      rgb(82 82 82 / 0.35),
+      transparent 100%
+    );
+}
+
+.contact-card-backdrop {
+  background:
+    radial-gradient(ellipse at 20% 15%, #6d6d6d, transparent 65%),
+    linear-gradient(145deg, #292929, #0a0a0a 75%);
+}
+
+.dark .contact-card-backdrop {
+  background:
+    radial-gradient(ellipse at 20% 15%, #a3a3a3, transparent 65%),
+    linear-gradient(145deg, #525252, #171717 75%);
 }
 
 ::view-transition-old(root),
@@ -181,10 +221,11 @@ html[data-theme-anim="1"]::view-transition-new(root) {
     transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 400ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 400ms cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
 }
 
-.project-card:hover {
+.project-card:hover,
+.project-card:focus-within {
+  will-change: transform;
   transform: translateY(-4px);
   border-color: color-mix(in srgb, var(--foreground) 14%, transparent);
   box-shadow:
@@ -211,9 +252,10 @@ html[data-theme-anim="1"]::view-transition-new(root) {
   inset: 0;
   transform: scale(1);
   transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
 }
 
-.project-card:hover .project-card__image-inner {
+.project-card:hover .project-card__image-inner,
+.project-card:focus-within .project-card__image-inner {
+  will-change: transform;
   transform: scale(1.06);
 }
