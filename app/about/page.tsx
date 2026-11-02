@@ -11,7 +11,7 @@ import type { ReactNode } from "react";
 export const metadata: Metadata = createMetadata({
   title: "About",
   description:
-    "Meet Nikodem Mahlik, a Computer Science student focused on cybersecurity and full-stack development.",
+    "Meet Nikodem Mahlik, a Junior Cybersecurity Engineer and Computer Science student focused on security tools and full-stack development.",
   path: "/about",
 });
 
@@ -30,16 +30,18 @@ export default function AboutPage(): ReactNode {
             </h1>
             <div className="text-foreground/75 mt-8 space-y-6 text-[17px] leading-[1.7] tracking-tight sm:text-[18px]">
               <p>
-                Computer Science student specializing in cybersecurity at the
-                Polish-Japanese Academy of Information Technology.
+                Junior Cybersecurity Engineer at Seargin and Computer Science
+                student specializing in cybersecurity at the Polish-Japanese
+                Academy of Information Technology.
               </p>
               <p>
                 I build security tools and hands-on labs, exploring both attack
                 and defense.
               </p>
               <p>
-                Through several internship projects, I&rsquo;m learning new
-                tools and developing my full-stack skills.
+                I joined Seargin as a Cybersecurity &amp; IT Operations intern,
+                and I keep learning new tools and developing my full-stack
+                skills.
               </p>
             </div>
           </div>

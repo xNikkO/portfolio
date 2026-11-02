@@ -17,9 +17,15 @@ type Entry = {
 
 const ENTRIES: Entry[] = [
   {
-    company: "Cybersecurity & IT Operations",
-    role: "Intern",
-    period: "Jul 2026 – Present",
+    company: "Seargin",
+    role: "Junior Cybersecurity Engineer",
+    period: "Oct 2026 – Present",
+    logo: "/experience/internship.png",
+  },
+  {
+    company: "Seargin",
+    role: "Cybersecurity & IT Operations Intern",
+    period: "Jul 2026 – Sep 2026",
     description: "Delivering projects, learning new tools and building full-stack skills.",
     logo: "/experience/internship.png",
   },
@@ -31,7 +37,7 @@ const ENTRIES: Entry[] = [
   },
 ];
 
-const COLLAPSED_COUNT = 2.5;
+const COLLAPSED_COUNT = 3.5;
 const ROW_HEIGHT = 64;
 const ROW_GAP = 8;
 

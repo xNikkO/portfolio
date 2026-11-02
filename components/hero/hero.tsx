@@ -22,8 +22,8 @@ export function Hero(): ReactNode {
             </h1>
 
             <p className="text-foreground/65 max-w-[40ch] text-[20px] leading-[1.4] tracking-tight sm:text-[22px]">
-              Computer Science student building security tools and growing
-              through hands-on internship projects.
+              Junior Cybersecurity Engineer and Computer Science student
+              building security tools and full-stack projects.
             </p>
 
             <HeroCtas />
