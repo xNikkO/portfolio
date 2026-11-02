@@ -6,7 +6,7 @@ const siteUrl = "https://xnikko.github.io/portfolio";
 export const siteConfig = {
   name: "Nikodem Mahlik",
   description:
-    "Computer Science student focused on cybersecurity, practical security tools and full-stack development.",
+    "Junior Cybersecurity Engineer and Computer Science student focused on practical security tools and full-stack development.",
   url: siteUrl,
   ogImage: `${siteUrl}/og-image.png`,
   creator: "Nikodem Mahlik",
