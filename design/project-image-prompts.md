@@ -1,10 +1,14 @@
 # Project image prompts
 
-Generated with the built-in image_gen tool. These are the final prompts used for the project thumbnails.
+How the project thumbnails were made. The AD Home Lab prompt is for the built-in image_gen tool; the logo thumbnails are composited with ImageMagick.
 
 ## hackademy-logo-dark.png
 
-Edit the attached Hackademy logo into a strict FLAT TWO-COLOR brand image for a dark portfolio. Landscape canvas 1632 x 960 (ratio about 1.7:1). This is a flat graphic, NOT a photograph or 3D object. Fill EVERY background pixel with solid opaque charcoal #0a0a0a. Render the original complete Hackademy wordmark, distinctive H shield, circuit traces and lock in solid white #fafafa. Preserve the original graphic shapes and exact lettering "Hackademy". Center the complete horizontal logo, 76% of total image width, vertically centered. The only two colors should be charcoal and white, with antialiasing at edges. White shapes have uniform flat interiors. Absolutely NO bevels, extrusion, glow, drop shadow, reflections, texture, grain, shading, metallic effects, light rays, transparency, vignette or gradient. Do not add anything or redesign the logo. Output a polished flat white logo on a perfectly even dark background.
+`hackademy-logo-white.png` from the Hackademy repository (`client/public/brand-pixel`), resized to 1240 px wide and centered on a 1632 x 960 canvas filled with #0a0a0a.
+
+## siem-mobile-dark.png
+
+`LogoSIEM.png` from the siem-mobile repository, trimmed, resized to 1100 px wide and centered on a 1632 x 960 canvas filled with #0a0a0a.
 
 ## ad-home-lab-dark.png
 

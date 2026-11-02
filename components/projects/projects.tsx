@@ -1,4 +1,4 @@
-import { ArrowRight, Flag, Radar } from "lucide-react";
+import { ArrowRight, Flag, Radar, Smartphone } from "lucide-react";
 import type { ComponentType, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,13 +24,26 @@ const PROJECTS: Project[] = [
     icon: Flag,
     iconLabel: "Hackademy",
     title:
-      "A CTF platform inspired by real security incidents.",
+      "A Polish CTF platform for learning cybersecurity.",
     description:
-      "Custom challenges and a full-stack platform built by me. First load may take 1–3 minutes on free hosting.",
-    meta: "React, Tailwind CSS, JavaScript, Java, Spring Boot, PostgreSQL",
+      "Learning paths, isolated labs and a real-time Arena with Elo ranking. A full-stack platform I build with my team.",
+    meta: "React, TypeScript, Tailwind CSS, Java, Spring Boot, PostgreSQL",
     image: "/projects/hackademy-logo-dark.png",
     imageAlt: "White Hackademy logo on a dark background",
-    href: "https://hackademy-front.onrender.com/",
+    href: "https://hackademy.app/",
+  },
+  {
+    id: "siem-mobile",
+    icon: Smartphone,
+    iconLabel: "SIEM-Mobile",
+    title:
+      "A pocket SOC dashboard for Splunk.",
+    description:
+      "A proof of concept from my Seargin internship. It polls Sysmon events, classifies them by severity and shows a mobile-style alert feed.",
+    meta: "Python, Kivy, Splunk REST API, Sysmon",
+    image: "/projects/siem-mobile-dark.png",
+    imageAlt: "White SIEM-Mobile logo on a dark background",
+    href: "https://github.com/xNikkO/siem-mobile",
   },
   {
     id: "ad-home-lab",
