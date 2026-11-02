@@ -23,8 +23,7 @@ const PROJECTS: Project[] = [
     id: "hackademy",
     icon: Flag,
     iconLabel: "Hackademy",
-    title:
-      "A Polish CTF platform for learning cybersecurity.",
+    title: "A Polish CTF platform for learning cybersecurity.",
     description:
       "Learning paths, isolated labs and a real-time Arena with Elo ranking. A full-stack platform I build with my team.",
     meta: "React, TypeScript, Tailwind CSS, Java, Spring Boot, PostgreSQL",
@@ -36,8 +35,7 @@ const PROJECTS: Project[] = [
     id: "siem-mobile",
     icon: Smartphone,
     iconLabel: "SIEM-Mobile",
-    title:
-      "A pocket SOC dashboard for Splunk.",
+    title: "A pocket SOC dashboard for Splunk.",
     description:
       "A proof of concept from my Seargin internship. It polls Sysmon events, classifies them by severity and shows a mobile-style alert feed.",
     meta: "Python, Kivy, Splunk REST API, Sysmon",
@@ -49,12 +47,11 @@ const PROJECTS: Project[] = [
     id: "ad-home-lab",
     icon: Radar,
     iconLabel: "AD Home Lab",
-    title:
-      "An Active Directory lab for attack and detection.",
+    title: "An Active Directory lab for attack and detection.",
     description:
       "Emulating attacks with Atomic Red Team and writing Splunk detections from Sysmon logs, mapped to MITRE ATT&CK.",
     meta: "Active Directory, Splunk, PowerShell, Windows Server, Kali Linux, Sysmon",
-    image: "/projects/ad-home-lab-dark.png",
+    image: "/projects/ad-home-lab-dark.webp",
     imageAlt: "Network diagram of my Active Directory home lab",
   },
 ];
@@ -62,11 +59,13 @@ const PROJECTS: Project[] = [
 export type ProjectsProps = {
   withHeadline?: boolean;
   viewMoreVisible?: boolean;
+  eagerImages?: boolean;
 };
 
 export function Projects({
   withHeadline = false,
   viewMoreVisible = false,
+  eagerImages = false,
 }: ProjectsProps): ReactNode {
   const items = viewMoreVisible ? PROJECTS.slice(0, 4) : PROJECTS;
 
@@ -86,7 +85,12 @@ export function Projects({
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-7">
           {items.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={index}
+              priorityImage={eagerImages && index < 2}
+            />
           ))}
         </div>
 
@@ -112,16 +116,15 @@ export function Projects({
 function ProjectCard({
   project,
   index,
+  priorityImage,
 }: {
   project: Project;
   index: number;
+  priorityImage: boolean;
 }): ReactNode {
   const Icon = project.icon;
   return (
-    <FadeIn
-      delay={Math.min(index * 0.06, 0.3)}
-      className="h-full min-w-0"
-    >
+    <FadeIn delay={Math.min(index * 0.06, 0.3)} className="h-full min-w-0">
       <CardLink href={project.href}>
         <article className="project-card border-foreground/8 bg-background flex h-full cursor-pointer flex-col gap-4 rounded-3xl border p-3 sm:p-3.5">
           <header className="flex items-center gap-2.5 px-1 pt-2">
@@ -136,9 +139,7 @@ function ProjectCard({
             </span>
           </header>
 
-          <div
-            className="project-card__image ring-foreground/5 bg-foreground/5 relative aspect-[682/401] w-full shrink-0 overflow-hidden rounded-2xl ring-1"
-          >
+          <div className="project-card__image ring-foreground/5 bg-foreground/5 relative aspect-[682/401] w-full shrink-0 overflow-hidden rounded-2xl ring-1">
             <div className="project-card__image-inner">
               <Image
                 src={publicPath(project.image)}
@@ -146,7 +147,7 @@ function ProjectCard({
                 fill
                 sizes="(min-width: 1024px) 540px, (min-width: 768px) 45vw, 100vw"
                 className="object-cover object-top"
-                priority={index < 2}
+                priority={priorityImage}
               />
             </div>
           </div>

@@ -26,7 +26,8 @@ const ENTRIES: Entry[] = [
     company: "Seargin",
     role: "Cybersecurity & IT Operations Intern",
     period: "Jul 2026 – Sep 2026",
-    description: "Delivering projects, learning new tools and building full-stack skills.",
+    description:
+      "Delivering projects, learning new tools and building full-stack skills.",
     logo: "/experience/internship.png",
   },
   {
@@ -86,7 +87,9 @@ export function Experience(): ReactNode {
                     {entry.period && (
                       <>
                         <span className="text-foreground/30 mx-2">•</span>
-                        <span className="text-foreground/55">{entry.period}</span>
+                        <span className="text-foreground/55">
+                          {entry.period}
+                        </span>
                       </>
                     )}
                   </span>
@@ -163,10 +166,16 @@ function CompanyLogo({ entry }: { entry: Entry }): ReactNode {
     >
       {entry.slug || entry.logo ? (
         <img
-          src={entry.logo ? publicPath(entry.logo) : `https://cdn.simpleicons.org/${entry.slug}`}
+          src={
+            entry.logo
+              ? publicPath(entry.logo)
+              : `https://cdn.simpleicons.org/${entry.slug}`
+          }
           alt=""
           width={24}
           height={24}
+          loading="lazy"
+          decoding="async"
           className="h-6 w-6"
           draggable={false}
         />
